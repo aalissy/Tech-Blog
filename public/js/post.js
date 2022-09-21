@@ -1,3 +1,4 @@
+// newFormHandler grabs the post title and content and posts the new post to the json file else alerts the user that it failed to create post
 const newFormHandler = async (event) => {
     event.preventDefault();
     const title = document.querySelector('#post-title').value.trim();
