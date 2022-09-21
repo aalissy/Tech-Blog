@@ -3,6 +3,7 @@ const { User, Post } = require('../models');
 const withAuth = require('../utils/auth');
 const date = new Date();
 
+// Gets all the users posts on the dashboard
 router.get('/', withAuth, async (req, res) => {
     try {
         const data = await Post.findAll({
@@ -21,10 +22,12 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
+// Allows the user to create a new post from the dashboard
 router.get('/new', withAuth, (req, res) => {
     res.render('post');
 });
 
+// Allows the user to edit the post by the id
 router.get('/edit/:id', withAuth, async (req, res) => {
     try {
         const data = await Post.findByPk(req.params.id)
