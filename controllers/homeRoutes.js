@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Gets all users posts
 router.get('/', async (req, res) => {
   try {
     const data = await Post.findAll({
@@ -17,6 +18,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Gets posts based on their id and allows the user to comment on them
 router.get('/post/:id', withAuth, async (req, res) => {
   try {
     const data = await Post.findOne({
@@ -39,6 +41,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
   }
 });
 
+// Login route checking if the user is logged in and sending them to the dashboard if they are or sending them to the login page if they aren't
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard');
@@ -47,6 +50,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// Signup route checking if the user is logged in and sending them to the dashboard if they are or sending them to the signup page if they aren't
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard');
