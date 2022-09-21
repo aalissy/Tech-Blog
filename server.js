@@ -1,3 +1,4 @@
+// Sets up the sequelize session and sets up the port for heroku or the localhost servers
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -11,8 +12,10 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Handlebars work with the created helpers
 const hbs = exphbs.create({ helpers });
 
+// Session set with secret, cookies, resaves, and the sequelizeStore
 const sess = {
   secret: 'Super secret secret',
   cookie: {
