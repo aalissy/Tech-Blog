@@ -3,8 +3,10 @@ require('dotenv').config();
 
 let sequelize;
 
+// Sets up JAWSDB_URL for Heroku
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
+// Otherwise sequelizes using the env file
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,
