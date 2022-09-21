@@ -1,3 +1,4 @@
+// Allows the user to signup by grabbing the username and password and passing it to the json file else returns an error
 const signupFormHandler = async (event) => {
     event.preventDefault();
     const username = document.querySelector('#user-signup').value.trim();
