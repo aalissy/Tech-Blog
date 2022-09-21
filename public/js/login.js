@@ -1,3 +1,4 @@
+// loginFormHandler allowing the user to login by username and password and putting it into the json file else returns an error
 const loginFormHandler = async (event) => {
   event.preventDefault();
   const username = document.querySelector('#user-login').value.trim();
