@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Comment, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// Gets all comments and checks that the user is logged in
 router.get('/', withAuth, async (req, res) => {
     try {
         const data = await Comment.findAll({
@@ -17,6 +18,7 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
+// Posts comments using the post id, content, and user id
 router.post('/', withAuth, async (req, res) => {
     try {
         const myComment = await Comment.create({
