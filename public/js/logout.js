@@ -1,3 +1,4 @@
+// Allows the user to logout else returns an error
 const logout = async () => {
   const response = await fetch('/api/users/logout', {
     method: 'POST',
